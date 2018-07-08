@@ -32,3 +32,5 @@ phat sinh loi ko co plugin
 
         </plugins>
     </build>
+	
+Thiet ke va quan ly database
