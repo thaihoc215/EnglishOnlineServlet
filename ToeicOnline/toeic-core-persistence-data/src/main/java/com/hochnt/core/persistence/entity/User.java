@@ -22,7 +22,10 @@ public class User {
 
     @Column(name = "createddate")
     private Timestamp createdDate;
-    private Integer role;
+
+    @ManyToOne
+    @JoinColumn(name = "roleid")
+    private Role role;
 
     public Integer getUserId() {
         return userId;
@@ -64,11 +67,11 @@ public class User {
         this.createdDate = createdDate;
     }
 
-    public Integer getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

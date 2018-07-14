@@ -1,9 +1,7 @@
 package com.hochnt.core.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "role")
@@ -15,6 +13,9 @@ public class Role {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "role", fetch = FetchType.LAZY)
+    private List<User> userList;
 
     public Integer getRoleId() {
         return roleId;
