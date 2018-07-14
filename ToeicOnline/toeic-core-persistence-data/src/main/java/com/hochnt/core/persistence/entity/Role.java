@@ -32,4 +32,12 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 }

@@ -14,5 +14,7 @@
 
         <mapping class="com.hochnt.core.persistence.entity.User"></mapping>
         <mapping class="com.hochnt.core.persistence.entity.Role"></mapping>
+        <mapping class="com.hochnt.core.persistence.entity.Comment"></mapping>
+        <mapping class="com.hochnt.core.persistence.entity.ListenGuideLine"></mapping>
     </session-factory>
 </hibernate-configuration>

@@ -13,5 +13,19 @@ create table role(
 	name varchar(100) null
 );
 
-alter table user add column roleid bigint;
-alter table user add constraint fk_user_role foreign key(roleid) references role(roleid);
+create table listenguideline(
+	listenguidelineid bigint not null primary key auto_increment,
+    title varchar(512) null,
+    image varchar(255) null,
+    content text null,
+    createddate timestamp null,
+    modifieddate timestamp
+);
+
+create table comment(
+	commentid bigint not null primary key auto_increment,
+    content text null,
+    userid bigint null,
+    listenguidelineid bigint null,
+    createddate timestamp null
+);

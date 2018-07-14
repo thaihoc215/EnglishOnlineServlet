@@ -3,6 +3,7 @@ package com.hochnt.core.persistence.entity;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -26,6 +27,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "roleid")
     private Role role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Comment> commentList;
 
     public Integer getUserId() {
         return userId;
@@ -73,5 +77,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 }
