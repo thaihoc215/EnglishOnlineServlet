@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ToeicOnline.iml" filepath="$PROJECT_DIR$/ToeicOnline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-common/toeic-core-common.iml" filepath="$PROJECT_DIR$/toeic-core-common/toeic-core-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-dao/toeic-core-dao.iml" filepath="$PROJECT_DIR$/toeic-core-dao/toeic-core-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-dao-impl/toeic-core-dao-impl.iml" filepath="$PROJECT_DIR$/toeic-core-dao-impl/toeic-core-dao-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-data/toeic-core-data.iml" filepath="$PROJECT_DIR$/toeic-core-data/toeic-core-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-dto/toeic-core-dto.iml" filepath="$PROJECT_DIR$/toeic-core-dto/toeic-core-dto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-persistence-data/toeic-core-persistence-data.iml" filepath="$PROJECT_DIR$/toeic-core-persistence-data/toeic-core-persistence-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-service/toeic-core-service.iml" filepath="$PROJECT_DIR$/toeic-core-service/toeic-core-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-service-impl/toeic-core-service-impl.iml" filepath="$PROJECT_DIR$/toeic-core-service-impl/toeic-core-service-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-test/toeic-core-test.iml" filepath="$PROJECT_DIR$/toeic-core-test/toeic-core-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-core-utils/toeic-core-utils.iml" filepath="$PROJECT_DIR$/toeic-core-utils/toeic-core-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-web/toeic-web.iml" filepath="$PROJECT_DIR$/toeic-web/toeic-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toeic-web-logic/toeic-web-logic.iml" filepath="$PROJECT_DIR$/toeic-web-logic/toeic-web-logic.iml" />
+    </modules>
+  </component>
+</project>

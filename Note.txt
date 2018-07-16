@@ -1,4 +1,4 @@
-maven: chuẩn group id
+﻿maven: chuẩn group id
 group id: sử dụng domain
 artifactId: tên project
 
@@ -34,3 +34,4 @@ phat sinh loi ko co plugin
     </build>
 	
 Thiet ke va quan ly database
+session: cung cấp phương thức để thực thi câu truy vấn

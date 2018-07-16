@@ -1,0 +1,4 @@
+com\hochnt\core\persistence\entity\Comment.class
+com\hochnt\core\persistence\entity\User.class
+com\hochnt\core\persistence\entity\ListenGuideLine.class
+com\hochnt\core\persistence\entity\Role.class

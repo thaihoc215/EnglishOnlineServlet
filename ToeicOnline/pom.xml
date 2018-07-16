@@ -12,7 +12,6 @@
         <module>toeic-web-logic</module>
         <module>toeic-web</module>
         <module>toeic-core-dto</module>
-        <module>toeic-core-dao</module>
         <module>toeic-core-data</module>
         <module>toeic-core-dao-impl</module>
         <module>toeic-core-service</module>
@@ -20,6 +19,8 @@
         <module>toeic-core-utils</module>
         <module>toeic-core-persistence-data</module>
         <module>toeic-core-common</module>
+        <module>toeic-core-test</module>
+        <module>toeic-core-dao</module>
     </modules>
 
     <properties>
@@ -27,6 +28,7 @@
         <jsp.api.version>2.3.1</jsp.api.version>
         <mysql.connector.version>8.0.11</mysql.connector.version>
         <hibernate.version>4.3.6.Final</hibernate.version>
+        <testng.version>6.14.3</testng.version>
     </properties>
     <dependencies>
         <dependency>
@@ -56,6 +58,13 @@
             <version>${hibernate.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <build>
