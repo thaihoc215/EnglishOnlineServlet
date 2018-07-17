@@ -14,4 +14,13 @@ public class RoleTest {
         RoleDao dao = new RoleDaoImpl();
         List<RoleEntity> list = dao.findAll();
     }
+
+    @Test
+    public void checkUpdateRole(){
+        RoleDao dao = new RoleDaoImpl();
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setRoleId(2);
+        roleEntity.setName("USER_2");
+        dao.update(roleEntity);
+    }
 }

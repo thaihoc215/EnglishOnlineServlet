@@ -25,26 +25,46 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return this.persistenceClass.getName();
     }
 
-    protected Session getSession() {
-        return HibernateUtil.getSessionFactory().openSession();
-    }
+//    protected Session getSession() {
+//        return HibernateUtil.getSessionFactory().openSession();
+//    }
 
     public List<T> findAll() {
         List<T> list = new ArrayList<T>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         try {
 
-            transaction = getSession().beginTransaction();
+            transaction = session.beginTransaction();
             StringBuilder hql = new StringBuilder("from ");
             hql.append(getPersistenceClassName());
-            Query query = this.getSession().createQuery(hql.toString());
+            Query query = session.createQuery(hql.toString());
             list = query.list();
             transaction.commit();
         }catch (HibernateException e){
             transaction.rollback();
             throw e;
+        } finally {
+            session.close();
         }
 
         return list;
+    }
+
+    public T update(T entity) {
+        T rs = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Object obj = session.merge(entity);
+            rs = (T) obj;
+            transaction.commit();
+        }catch (HibernateException e){
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+        }
+        return rs;
     }
 }
