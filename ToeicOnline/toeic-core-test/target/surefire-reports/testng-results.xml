@@ -2,10 +2,10 @@
 <testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="com.hochnt.core.test.RoleTest" duration-ms="6" started-at="2019-04-15T05:16:20Z" finished-at="2019-04-15T05:16:20Z">
+  <suite name="com.hochnt.core.test.RoleTest" duration-ms="9" started-at="2019-04-15T05:26:13Z" finished-at="2019-04-15T05:26:13Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="6" started-at="2019-04-15T05:16:20Z" finished-at="2019-04-15T05:16:20Z">
+    <test name="Command line test" duration-ms="9" started-at="2019-04-15T05:26:13Z" finished-at="2019-04-15T05:26:13Z">
     </test> <!-- Command line test -->
   </suite> <!-- com.hochnt.core.test.RoleTest -->
 </testng-results>
