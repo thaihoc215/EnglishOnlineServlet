@@ -26,3 +26,16 @@ ToecicOnline/*/target
 ToeicOnline/toeic-core-common/target/maven-archiver/pom.properties
 ToeicOnline/toeic-core-common/target
 ToeicOnline/.idea
+
+ToecicOnline/toeic-core-common/target
+ToecicOnline/toeic-core-dao/target
+ToecicOnline/toeic-core-dao-impl/target
+ToecicOnline/toeic-core-data/target
+ToecicOnline/toeic-core-dto/target
+ToecicOnline/toeic-core-persistence-data/target
+ToecicOnline/toeic-core-service/target
+ToecicOnline/toeic-core-service-impl/target
+ToecicOnline/toeic-core-test/target
+ToecicOnline/toeic-core-utils/target
+ToecicOnline/toeic-web/target
+ToecicOnline/toeic-web-logic/target

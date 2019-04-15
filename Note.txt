@@ -37,3 +37,9 @@ Thiet ke va quan ly database
 session: cung cấp phương thức để thực thi câu truy vấn
 
 tạo class servlet: extends HttpServlet
+
+web: war , dùng cho server host chạy, tomcat trỏ vào deploy lên, tầng view
+web-logic: jar, file chạy, tầng controler(servlet), model(command) - lớp trung gian
+
+persistence-data: chứa các class map db, DTO
+core-common: chứa các class dùng chung
