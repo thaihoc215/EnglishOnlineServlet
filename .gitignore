@@ -23,5 +23,6 @@
 hs_err_pid*
 
 ToecicOnline/*/target
-*.properties
 ToeicOnline/toeic-core-common/target/maven-archiver/pom.properties
+ToeicOnline/toeic-core-common/target
+ToeicOnline/.idea
