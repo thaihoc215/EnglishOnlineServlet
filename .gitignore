@@ -22,23 +22,23 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-ToecicOnline/*/target
+ToeicOnline/*/target
 ToeicOnline/toeic-core-common/target/*
 ToeicOnline/toeic-core-common/target
 ToeicOnline/.idea
 
-ToecicOnline/toeic-core-common/target
-ToecicOnline/toeic-core-dao/target
-ToecicOnline/toeic-core-dao-impl/target
-ToecicOnline/toeic-core-data/target
-ToecicOnline/toeic-core-dto/target
-ToecicOnline/toeic-core-persistence-data/target
-ToecicOnline/toeic-core-service/target
-ToecicOnline/toeic-core-service-impl/target
-ToecicOnline/toeic-core-test/target
-ToecicOnline/toeic-core-utils/target
-ToecicOnline/toeic-web/target
-ToecicOnline/toeic-web-logic/target
+ToeicOnline/toeic-core-common/target
+ToeicOnline/toeic-core-dao/target
+ToeicOnline/toeic-core-dao-impl/target
+ToeicOnline/toeic-core-data/target
+ToeicOnline/toeic-core-dto/target
+ToeicOnline/toeic-core-persistence-data/target
+ToeicOnline/toeic-core-service/target
+ToeicOnline/toeic-core-service-impl/target
+ToeicOnline/toeic-core-test/target
+ToeicOnline/toeic-core-utils/target
+ToeicOnline/toeic-web/target
+ToeicOnline/toeic-web-logic/target
 ToeicOnline/toeic-core-common/target/*
 ToeicOnline/toeic-core-dao-impl/target/*
 ToeicOnline/toeic-core-dao/target/*
