@@ -247,7 +247,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="test&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-core-test/src/test/java/com/hochnt/core/test/RoleTest.java&#10;rol&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-core-test/src/test/java/com/hochnt/core/test/RoleTest.java&#10;hiber&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-web/src/main/resources/hibernate.cfg.xml&#10;ab&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-core-data/src/main/java/com/hochnt/core/data/daoimpl/AbstractDao.java&#10;gen&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-core-data/src/main/java/com/hochnt/core/data/daoimpl/GenericDaoImpl.java&#10;hibe&#9;FILE&#9;file://E:/STUDY/2.Java/Project/EnglishOnlineServlet/ToeicOnline/toeic-web/src/main/resources/hibernate.cfg.xml&#10;persi&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;per&#9;ACTION&#9;ActivatePersistenceToolWindow&#10;mess&#9;ACTION&#9;ActivateMessagesToolWindow&#10;me&#9;ACTION&#9;ActivateMessagesToolWindow" />
-    <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
