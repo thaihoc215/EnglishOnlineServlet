@@ -18,8 +18,8 @@ set war cho tomcat <packaging>war</packaging>
 
 phat sinh loi ko co plugin
 
-	<build>
         <plugins>
+	<build>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -35,3 +35,5 @@ phat sinh loi ko co plugin
 	
 Thiet ke va quan ly database
 session: cung cấp phương thức để thực thi câu truy vấn
+
+tạo class servlet: extends HttpServlet

@@ -2,10 +2,7 @@ package com.hochnt.core.data.daoimpl;
 
 import com.hochnt.core.common.utils.HibernateUtil;
 import com.hochnt.core.data.dao.GenericDao;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -25,16 +22,15 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return this.persistenceClass.getName();
     }
 
-//    protected Session getSession() {
-//        return HibernateUtil.getSessionFactory().openSession();
-//    }
+    protected Session getSession() {
+        return HibernateUtil.getSessionFactory().openSession();
+    }
 
     public List<T> findAll() {
         List<T> list = new ArrayList<T>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         try {
-
             transaction = session.beginTransaction();
             StringBuilder hql = new StringBuilder("from ");
             hql.append(getPersistenceClassName());
@@ -53,11 +49,43 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
     public T update(T entity) {
         T rs = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = getSession();
         Transaction transaction = session.beginTransaction();
         try {
             Object obj = session.merge(entity);
             rs = (T) obj;
+            transaction.commit();
+        }catch (HibernateException e){
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+        }
+        return rs;
+    }
+
+    public void save(T entity) {
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.persist(entity);
+            transaction.commit();
+        }catch (HibernateException e){
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+        }
+    }
+
+    public T findById(ID id) {
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        T rs = null;
+        try {
+            rs = (T) session.get(persistenceClass,id);
+            if (rs==null)
+                throw new ObjectNotFoundException("NOT FOUNT " + id, null);
             transaction.commit();
         }catch (HibernateException e){
             transaction.rollback();

@@ -1,4 +1,4 @@
-E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\Comment.java
-E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\ListenGuideLine.java
-E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\User.java
-E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\Role.java
+E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\UserEntity.java
+E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\ListenGuideLineEntity.java
+E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\CommentEntity.java
+E:\STUDY\2.Java\Project\EnglishOnlineServlet\ToeicOnline\toeic-core-persistence-data\src\main\java\com\hochnt\core\persistence\entity\RoleEntity.java

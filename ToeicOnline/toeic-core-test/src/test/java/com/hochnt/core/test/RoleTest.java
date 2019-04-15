@@ -9,18 +9,34 @@ import java.util.List;
 
 public class RoleTest {
 
-    @Test
-    public void checkFindAll(){
-        RoleDao dao = new RoleDaoImpl();
-        List<RoleEntity> list = dao.findAll();
-    }
-
-    @Test
-    public void checkUpdateRole(){
-        RoleDao dao = new RoleDaoImpl();
-        RoleEntity roleEntity = new RoleEntity();
-        roleEntity.setRoleId(2);
-        roleEntity.setName("USER_2");
-        dao.update(roleEntity);
-    }
+//    @Test
+//    public void checkFindAll(){
+//        RoleDao dao = new RoleDaoImpl();
+//        List<RoleEntity> list = dao.findAll();
+//    }
+//
+//    @Test
+//    public void checkUpdateRole(){
+//        RoleDao dao = new RoleDaoImpl();
+//        RoleEntity roleEntity = new RoleEntity();
+//        roleEntity.setRoleId(2);
+//        roleEntity.setName("USER_2");
+//        dao.update(roleEntity);
+//    }
+//
+//    @Test
+//    public void checkSaveRole(){
+//        RoleDao dao = new RoleDaoImpl();
+//        RoleEntity roleEntity = new RoleEntity();
+//        roleEntity.setRoleId(3);
+//        roleEntity.setName("MANAGER");
+//        dao.save(roleEntity);
+//    }
+//
+//    @Test
+//    public void checkFindId(){
+//        RoleDao dao = new RoleDaoImpl();
+//        RoleEntity roleEntity = new RoleEntity();
+//        roleEntity = dao.findById(5);
+//    }
 }

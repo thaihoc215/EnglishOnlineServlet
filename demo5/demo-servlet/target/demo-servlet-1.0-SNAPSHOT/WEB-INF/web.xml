@@ -6,6 +6,7 @@
     <display-name>Demo Servlet</display-name>
 
     <welcome-file-list>
+        <welcome-file>simple-servlet</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
