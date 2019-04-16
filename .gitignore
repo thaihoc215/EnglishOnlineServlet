@@ -29,3 +29,7 @@ ToeicOnline/toeic-core-test/target/*
 ToeicOnline/toeic-core-utils/target/*
 ToeicOnline/toeic-web/target/*
 ToeicOnline/toeic-web-logic/target/*
+ToeicOnline/toeic-core-test/toeic-core-test.iml
+*.iml
+*.iml
+ToeicOnline/ToeicOnline.iml
