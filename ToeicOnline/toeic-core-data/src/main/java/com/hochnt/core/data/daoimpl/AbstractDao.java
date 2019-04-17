@@ -15,10 +15,11 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
     private Class<T> persistenceClass;
 
     public AbstractDao() {
+        // using reflection
         this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];//lay class cua class cha
     }
 
-    public String getPersistenceClassName(){
+    public String getPersistenceClassName() {
         return this.persistenceClass.getName();
     }
 
@@ -37,7 +38,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             Query query = session.createQuery(hql.toString());
             list = query.list();
             transaction.commit();
-        }catch (HibernateException e){
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
         } finally {
@@ -55,10 +56,10 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             Object obj = session.merge(entity);
             rs = (T) obj;
             transaction.commit();
-        }catch (HibernateException e){
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }finally {
+        } finally {
             session.close();
         }
         return rs;
@@ -70,10 +71,10 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         try {
             session.persist(entity);
             transaction.commit();
-        }catch (HibernateException e){
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }finally {
+        } finally {
             session.close();
         }
     }
@@ -83,14 +84,14 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         Transaction transaction = session.beginTransaction();
         T rs = null;
         try {
-            rs = (T) session.get(persistenceClass,id);
-            if (rs==null)
+            rs = (T) session.get(persistenceClass, id);
+            if (rs == null)
                 throw new ObjectNotFoundException("NOT FOUNT " + id, null);
             transaction.commit();
-        }catch (HibernateException e){
+        } catch (HibernateException e) {
             transaction.rollback();
             throw e;
-        }finally {
+        } finally {
             session.close();
         }
         return rs;

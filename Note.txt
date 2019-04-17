@@ -43,9 +43,12 @@ web-logic: jar, file chạy, tầng controler(servlet), model(command) - lớp t
 
 persistence-data: chứa các class map db, DTO, entiyu
 core-common: chứa các class dùng chung
+ - HibernateUtils: Khởi tạo đối tượng sessionfactory
 
 ORM: Object Relational Mapping
 persistence-object: POJOs
 SessionFactory? Gap dau tien khi kết nối db (để kết nối) => tạo ra đối tượng session
 Session? Sinh ra những câu truy vấn (query)
 Transaction? thực hiện query (process thực thi đều nằm trong transaction ->  mở - thực thi - đóng (nếu fail -> cơ chế roll back)
+
+17.4: Xây dựng persistence entity
