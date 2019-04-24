@@ -48,7 +48,22 @@ core-common: chứa các class dùng chung
 ORM: Object Relational Mapping
 persistence-object: POJOs
 SessionFactory? Gap dau tien khi kết nối db (để kết nối) => tạo ra đối tượng session
-Session? Sinh ra những câu truy vấn (query)
-Transaction? thực hiện query (process thực thi đều nằm trong transaction ->  mở - thực thi - đóng (nếu fail -> cơ chế roll back)
+Session: 
+- Sinh ra những câu truy vấn (query), thực thi những câu lệnh truy vấn
+Transaction:
+- Thực hiện query (process thực thi đều nằm trong transaction ->  mở - thực thi - đóng (nếu fail -> cơ chế roll back)
 
 17.4: Xây dựng persistence entity
+core-persistence-data: Chứa entity
+sử dụng 2 anotation: @Entity: đánh dấu là 1 entity
+@Table(name="table_name") map với table trong database
+- Tạo entity mới, phải khai báo mapping trong hibernate => map giữa entity class và database
+- Muốn sử dụng module khác -> add dependencies của module đó trong pom.xml
+18/5:
+Bài 17: Xây dựng API FindAll and Update() dùng chung cho hệ thống
+AbstractDAO<ID,T> impl GenericDAO<ID,T>
+exp: RoleDao imp GenericDAO<int,RoleEntity> => map persistence với entity
+RoleDaoImpl extends AbstractDao<Integer,RoleEntity> implements RoleDao
+Khi khởi tạo RoleDao  = RoleDaoImpl thì persistence trong AbstracDAO sẽ được khởi tạo qua constructor và persistence được gán với kiểu T = RoleEntity
+Tính chất của generic?
+Interface: Thể hiện thuộc tính riêng của con(impl interface) mà cha(class) không có

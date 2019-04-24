@@ -6,8 +6,6 @@ import org.hibernate.*;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T> {
@@ -16,7 +14,9 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
     public AbstractDao() {
         // using reflection
-        this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];//lay class cua class cha
+        //lay class cua class class duoc khoi tao va implement GenericDAO
+        // Generic Dao có 2 param<ID,T>, hàm get class lấy ra được class tương ứng và get ra đúng type của argument vị trí n
+        this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
 
     public String getPersistenceClassName() {
@@ -27,16 +27,19 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return HibernateUtil.getSessionFactory().openSession();
     }
 
+    /**
+     * Find all data of entity mapped to table in db
+     * @return List data with type of Entity
+     */
     public List<T> findAll() {
-        List<T> list = new ArrayList<T>();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<T> list;
+        Session session = getSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
             StringBuilder hql = new StringBuilder("from ");
             hql.append(getPersistenceClassName());
-            Query query = session.createQuery(hql.toString());
-            list = query.list();
+            list = session.createQuery(hql.toString()).getResultList();
             transaction.commit();
         } catch (HibernateException e) {
             transaction.rollback();
@@ -48,8 +51,13 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return list;
     }
 
+    /**
+     * Update an data record mapped to entity
+     * @param entity
+     * @return
+     */
     public T update(T entity) {
-        T rs = null;
+        T rs;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -65,6 +73,10 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return rs;
     }
 
+    /**
+     * add an data record of table mapped to entity
+     * @param entity
+     */
     public void save(T entity) {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
@@ -79,11 +91,17 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         }
     }
 
+    /**
+     * find an data record mapped to entity by unique ID
+     * @param id
+     * @return An entity class
+     */
     public T findById(ID id) {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         T rs = null;
         try {
+            // Dựa vào annotation ID đã đánh đấu ở các entity
             rs = (T) session.get(persistenceClass, id);
             if (rs == null)
                 throw new ObjectNotFoundException("NOT FOUNT " + id, null);
