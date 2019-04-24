@@ -13,7 +13,7 @@ public class RoleTest {
     public void checkFindAll(){
         RoleDao dao = new RoleDaoImpl();
         List<RoleEntity> list = dao.findAll();
-        System.out.println(list.size());
+        System.out.println("List roles size: " + list.size());
     }
 
     @Test
@@ -39,5 +39,6 @@ public class RoleTest {
         RoleDao dao = new RoleDaoImpl();
         RoleEntity roleEntity = new RoleEntity();
         roleEntity = dao.findById(3);
+        System.out.println(roleEntity.getName());
     }
 }
