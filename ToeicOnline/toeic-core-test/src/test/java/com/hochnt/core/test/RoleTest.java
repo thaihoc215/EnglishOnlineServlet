@@ -21,18 +21,18 @@ public class RoleTest {
         RoleDao dao = new RoleDaoImpl();
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setRoleId(2);
-        roleEntity.setName("USER_2");
+        roleEntity.setName("USER_1");
         dao.update(roleEntity);
     }
 
-//    @Test
-//    public void checkSaveRole(){
-//        RoleDao dao = new RoleDaoImpl();
-//        RoleEntity roleEntity = new RoleEntity();
-//        roleEntity.setRoleId(3);
-//        roleEntity.setName("MANAGER");
-//        dao.save(roleEntity);
-//    }
+    @Test
+    public void checkSaveRole(){
+        RoleDao dao = new RoleDaoImpl();
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setRoleId(3);
+        roleEntity.setName("MANAGER");
+        dao.save(roleEntity);
+    }
 
     @Test
     public void checkFindId(){

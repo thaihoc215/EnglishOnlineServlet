@@ -4,6 +4,7 @@ import com.hochnt.core.common.utils.HibernateUtil;
 import com.hochnt.core.data.dao.GenericDao;
 import org.hibernate.*;
 
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -72,8 +73,13 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         try {
+            // HLA
             Object obj = session.merge(entity);
             rs = (T) obj;
+            //JPA
+            /*CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaUpdate<T> cu = cb.createCriteriaUpdate(this.persistenceClass);
+            Root<T> root = cu.from(this.persistenceClass);*/
             transaction.commit();
         } catch (HibernateException e) {
             transaction.rollback();
@@ -118,10 +124,18 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             rs = (T) session.get(persistenceClass, id);
             if (rs == null)
                 throw new ObjectNotFoundException("NOT FOUNT " + id, null);
+            //JPA
+            /*CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<T> cr = cb.createQuery(this.persistenceClass);
+            Root<T> root = cr.from(this.persistenceClass);
+            cr.select(root).where(cb.equal(root.get("roleId"), id));
+            rs = session.createQuery(cr).getSingleResult();*/
+
             //transaction.commit();
-        } catch (HibernateException e) {
+        } catch (NoResultException e) {
             //transaction.rollback();
-            throw e;
+//            throw e;
+            throw new ObjectNotFoundException("NOT FOUNT " + id, null);
         } finally {
             session.close();
         }

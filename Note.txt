@@ -67,3 +67,11 @@ RoleDaoImpl extends AbstractDao<Integer,RoleEntity> implements RoleDao
 Khi khởi tạo RoleDao  = RoleDaoImpl thì persistence trong AbstracDAO sẽ được khởi tạo qua constructor và persistence được gán với kiểu T = RoleEntity
 Tính chất của generic?
 Interface: Thể hiện thuộc tính riêng của con(impl interface) mà cha(class) không có
+----
+Bài 18: Xây dựng test và các class DAO Impl
+core-dto: hiển thị dữ liệu lên web
+- web - DTO - entity =>:
+retrieve: entity -> DTO
+save: DTO -> entity
+
+interface không thể khởi tạo đối tượng -> khởi tạo theo implements
