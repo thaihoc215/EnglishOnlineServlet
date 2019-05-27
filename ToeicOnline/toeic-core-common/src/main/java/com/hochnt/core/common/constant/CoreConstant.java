@@ -9,4 +9,7 @@ public class CoreConstant {
      * User is inactive
      */
     public static final int INACTIVE = 0;
+
+    public static final String SORT_ASC = "2";
+    public static final String SORT_DESC = "1";
 }

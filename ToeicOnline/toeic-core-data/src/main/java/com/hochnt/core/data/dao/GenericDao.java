@@ -20,4 +20,6 @@ public interface GenericDao<ID extends Serializable, T> {
     void save(T entity);
 
     T findById(ID id);
+
+    Object[] findByProperty(String property, Object value, String sortExpresion, String direction );
 }

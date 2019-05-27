@@ -1,8 +1,14 @@
 package com.hochnt.core.data.daoimpl;
 
+import com.hochnt.core.common.constant.CoreConstant;
 import com.hochnt.core.common.utils.HibernateUtil;
 import com.hochnt.core.data.dao.GenericDao;
-import org.hibernate.*;
+import com.mysql.cj.util.StringUtils;
+import org.hibernate.HibernateException;
+import org.hibernate.ObjectNotFoundException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -139,6 +145,52 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         } finally {
             session.close();
         }
+        return rs;
+    }
+
+    public Object[] findByProperty(String property, Object value, String sortExpresion, String direction) {
+        Session session = getSession();
+        Object[] rs = new Object[2];
+        List<T> list;
+        try {
+
+            // using HQL
+/*            StringBuilder hql = new StringBuilder("from ");
+            hql.append(getPersistenceClassName());
+            if (!StringUtils.isNullOrEmpty(property) && value != null) {
+                hql.append(" where ").append(property).append(" =:value");
+            }
+            if (!StringUtils.isNullOrEmpty(sortExpresion) && !StringUtils.isNullOrEmpty(direction)) {
+                hql.append(" order by ").append(sortExpresion);
+                hql.append(" " + (sortExpresion.equals(CoreConstant.SORT_ASC) ? "ASC" : "DESC"));
+            }
+
+            Query<T> query = session.createQuery(hql.toString());
+            if (!StringUtils.isNullOrEmpty(property) && value != null) {
+             query.setParameter("value",value);
+            }
+            list = query.getResultList();*/
+            //use JPA
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<T> cr = cb.createQuery(persistenceClass);
+            Root<T> root = cr.from(persistenceClass);
+            if (!StringUtils.isNullOrEmpty(property) && value != null) {
+                cr.select(root).where(cb.equal(root.get(property), value));
+            }
+            if (!StringUtils.isNullOrEmpty(sortExpresion) && !StringUtils.isNullOrEmpty(direction)) {
+                cr.orderBy(direction.equals("2") ? cb.asc(root.get(sortExpresion)) : cb.desc(root.get(sortExpresion)));
+            }
+            list = session.createQuery(cr).getResultList();
+
+
+        } catch (HibernateException e) {
+            //transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        rs[0] = list;
+        rs[1] = list == null ? 0 : list.size();
         return rs;
     }
 }

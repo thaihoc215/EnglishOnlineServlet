@@ -41,4 +41,12 @@ public class RoleTest {
         roleEntity = dao.findById(3);
         System.out.println(roleEntity.getName());
     }
+
+    @Test
+    public void testFindByProperty(){
+        RoleDao dao = new RoleDaoImpl();
+        Object[] roleFind = dao.findByProperty("name", "ADMIN", "name", "2");
+        Object[] roleFind2 = dao.findByProperty(null, null, null, null);
+        System.out.println(roleFind[1].toString());
+    }
 }
