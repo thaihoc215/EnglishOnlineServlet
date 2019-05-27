@@ -5,6 +5,8 @@ import com.hochnt.core.daoimpl.RoleDaoImpl;
 import com.hochnt.core.persistence.entity.RoleEntity;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RoleTest {
@@ -48,5 +50,13 @@ public class RoleTest {
         Object[] roleFind = dao.findByProperty("name", "ADMIN", "name", "2");
         Object[] roleFind2 = dao.findByProperty(null, null, null, null);
         System.out.println(roleFind[1].toString());
+    }
+
+    @Test
+    public void testDelete() {
+        List<Integer> lst = new ArrayList<Integer>(Arrays.asList(4,5));
+        RoleDao dao = new RoleDaoImpl();
+        int count = dao.delete(lst);
+        System.out.println(count);
     }
 }

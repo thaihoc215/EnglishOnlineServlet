@@ -22,4 +22,11 @@ public interface GenericDao<ID extends Serializable, T> {
     T findById(ID id);
 
     Object[] findByProperty(String property, Object value, String sortExpresion, String direction );
+
+    /**
+     * Delete list item by item ids
+     * @param ids
+     * @return
+     */
+    Integer delete(List<ID> ids);
 }

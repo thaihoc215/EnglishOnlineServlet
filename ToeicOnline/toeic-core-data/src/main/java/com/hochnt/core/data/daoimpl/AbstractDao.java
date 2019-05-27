@@ -39,6 +39,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
     /**
      * Find all data of entity mapped to table in db
+     *
      * @return List data with type of Entity
      */
     public List<T> findAll() {
@@ -71,6 +72,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
     /**
      * Update an data record mapped to entity
+     *
      * @param entity
      * @return
      */
@@ -192,5 +194,27 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         rs[0] = list;
         rs[1] = list == null ? 0 : list.size();
         return rs;
+    }
+
+    public Integer delete(List<ID> ids) {
+        // using HQL basic
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        int count = 0;
+        try {
+            for (ID id : ids) {
+                T t = (T) session.get(persistenceClass, id);
+                session.delete(t);
+                count++;
+            }
+            transaction.commit();
+
+        } catch (HibernateException e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return count;
     }
 }
