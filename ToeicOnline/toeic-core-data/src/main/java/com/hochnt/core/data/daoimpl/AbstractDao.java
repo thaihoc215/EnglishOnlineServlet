@@ -204,6 +204,8 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         try {
             for (ID id : ids) {
                 T t = (T) session.get(persistenceClass, id);
+                if (t == null)
+                    continue;
                 session.delete(t);
                 count++;
             }

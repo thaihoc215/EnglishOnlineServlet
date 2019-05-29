@@ -80,3 +80,8 @@ interface không thể khởi tạo đối tượng -> khởi tạo theo impleme
 ---------------
 Bài 21: xây dựng hàm findByProperty() thuộc tính
 Bài 22.1: xây dựng API delete
+------------
+28/05/2019
+Bài 23.1 Xây dựng giao diện pj sử dụng sitemesh decorate p1
+- add library
+- create filter web xml, decorate config

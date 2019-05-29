@@ -29,11 +29,11 @@ public class RoleTest {
 
     @Test
     public void checkSaveRole(){
-        RoleDao dao = new RoleDaoImpl();
+        /*RoleDao dao = new RoleDaoImpl();
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setRoleId(3);
         roleEntity.setName("MANAGER");
-        dao.save(roleEntity);
+        dao.save(roleEntity);*/
     }
 
     @Test
