@@ -90,8 +90,13 @@ web 2 phan rieng biet: web và admin
 decorators: 2 phần
 - page cha: master layout
 - page con: phần thừa hưởng, thay đổi ở giữa 
+- update master layout + child (common + decorators)
 ...
  create admin/web body
  add empty common master layout(header/footer/menu)
 - command -> model (toeic web logic)
 - create HomeController for admin/web
+...............
+01/06:
+24.1 Tạo giao diện admin sử dụng template có sẵn + sitemesh
+- design login page
