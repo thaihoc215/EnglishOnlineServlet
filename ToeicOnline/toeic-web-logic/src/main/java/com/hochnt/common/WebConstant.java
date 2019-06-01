@@ -1,4 +1,4 @@
-package com.hochnt.web.logic.common;
+package com.hochnt.common;
 
 /**
  * hochnt created
