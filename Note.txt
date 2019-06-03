@@ -99,4 +99,12 @@ decorators: 2 phần
 ...............
 01/06:
 24.1 Tạo giao diện admin sử dụng template có sẵn + sitemesh
+- add asset bootstrap to project
+- add filter login for decorator
+- add footer/header for login page (decorate)
+............
 - design login page
+
+03/06
+include header template from template index.html
+using c:url(of jstl) -> khai báo vị trí của folder trong project
