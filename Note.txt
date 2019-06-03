@@ -108,3 +108,7 @@ decorators: 2 phần
 03/06
 include header template from template index.html
 using c:url(of jstl) -> khai báo vị trí của folder trong project
+...
+create login controler
+create login GUI from template
+update header footer for login page
