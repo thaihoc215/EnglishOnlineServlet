@@ -13,9 +13,9 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="com.hochnt.core.persistence.entity.UserEntity"></mapping>
-        <mapping class="com.hochnt.core.persistence.entity.RoleEntity"></mapping>
-        <mapping class="com.hochnt.core.persistence.entity.CommentEntity"></mapping>
-        <mapping class="com.hochnt.core.persistence.entity.ListenGuideLineEntity"></mapping>
+        <mapping class="com.hnthoc.core.persistence.entity.UserEntity"></mapping>
+        <mapping class="com.hnthoc.core.persistence.entity.RoleEntity"></mapping>
+        <mapping class="com.hnthoc.core.persistence.entity.CommentEntity"></mapping>
+        <mapping class="com.hnthoc.core.persistence.entity.ListenGuideLineEntity"></mapping>
     </session-factory>
 </hibernate-configuration>

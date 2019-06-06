@@ -2,7 +2,7 @@ package com.hochnt.core.test;
 
 import com.hochnt.core.dao.RoleDao;
 import com.hochnt.core.daoimpl.RoleDaoImpl;
-import com.hochnt.core.persistence.entity.RoleEntity;
+import com.hnthoc.core.persistence.entity.RoleEntity;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

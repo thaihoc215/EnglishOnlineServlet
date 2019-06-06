@@ -1,4 +1,4 @@
-package com.hochnt.core.persistence.entity;
+package com.hnthoc.core.persistence.entity;
 
 import javax.persistence.*;
 import java.util.List;

@@ -112,3 +112,9 @@ using c:url(of jstl) -> khai báo vị trí của folder trong project
 create login controler
 create login GUI from template
 update header footer for login page
+
+Bài 25: Viết API login
+- using resource bundle
+
+Bài 26: thực hiện chức năng đăng nhập
+- insert data for user (role 1-2)
