@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>toeic-core-test</artifactId>
+    <artifactId>toeic-api-test</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.hochnt</groupId>

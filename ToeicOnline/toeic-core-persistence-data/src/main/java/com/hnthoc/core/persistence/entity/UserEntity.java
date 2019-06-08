@@ -74,7 +74,7 @@ public class UserEntity {
         return roleEntity;
     }
 
-    public void setRole(RoleEntity roleEntity) {
+    public void setRoleEntity(RoleEntity roleEntity) {
         this.roleEntity = roleEntity;
     }
 

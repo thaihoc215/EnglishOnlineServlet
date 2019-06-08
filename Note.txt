@@ -118,3 +118,6 @@ Bài 25: Viết API login
 
 Bài 26: thực hiện chức năng đăng nhập
 - insert data for user (role 1-2)
+- create Role + user DTO
+- Tạo hàm chuyển đổi dữ liệu giữa DTO và entity -> trong package util: Role, User
+pojo(DTO)
