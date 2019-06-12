@@ -122,3 +122,9 @@ Bài 26: thực hiện chức năng đăng nhập
 - Tạo hàm chuyển đổi dữ liệu giữa DTO và entity -> trong package util: Role, User
 - change core-test -> api-test
 pojo(DTO)
+
+-----
+12/06/2019
+Bài 27: Using Log
+- create Log4j config - toeic-web
+- update login for login-page-view
