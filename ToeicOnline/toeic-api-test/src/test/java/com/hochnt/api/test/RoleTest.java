@@ -1,4 +1,4 @@
-package com.hochnt.core.test;
+package com.hochnt.api.test;
 
 import com.hochnt.core.dao.RoleDao;
 import com.hochnt.core.daoimpl.RoleDaoImpl;

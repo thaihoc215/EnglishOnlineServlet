@@ -2,10 +2,10 @@
 <suite name="TestAll">
     <test name="case1">
         <classes>
-            <!--<class name="vn.myclass.api.test.LoginTest"/>-->
+            <class name="com.hochnt.api.test.LoginTest"/>
             <!--<class name="vn.myclass.api.test.ListenGuidelineTest"/>-->
             <!--<class name="vn.myclass.api.test.reviewHashMap"/>-->
-            <class name="com.hochnt.core.test.RoleTest"></class>
+            <class name="com.hochnt.api.test.RoleTest"></class>
         </classes>
     </test>
 </suite>
