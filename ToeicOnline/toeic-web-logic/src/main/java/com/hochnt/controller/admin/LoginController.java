@@ -1,5 +1,8 @@
 package com.hochnt.controller.admin;
 
+import com.hnthoc.core.dto.UserDTO;
+import com.hnthoc.core.web.utils.FormUtil;
+import com.hochnt.command.UserCommand;
 import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
@@ -22,7 +25,11 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.error("jsp servlet test hnthoc");
+        /*log.error("jsp servlet test hnthoc");
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");*/
+        UserCommand command = FormUtil.populate(UserCommand.class, req);
+        UserDTO pojo = command.getPojo();
         RequestDispatcher rd = req.getRequestDispatcher("/views/web/login.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)
         rd.forward(req, resp);
     }

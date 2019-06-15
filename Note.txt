@@ -128,3 +128,4 @@ pojo(DTO)
 Bài 27: Using Log
 - create Log4j config - toeic-web
 - update login for login-page-view
+Bài 28: Sử dụng common bean utils trong servlet
