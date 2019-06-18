@@ -129,3 +129,12 @@ Bài 27: Using Log
 - create Log4j config - toeic-web
 - update login for login-page-view
 Bài 28: Sử dụng common bean utils trong servlet
+Bài 29: xây dựng chức năng login
+- create dao check user exist
+- create test for check user exist + get role user
+29.1:
+update login view
+add webconstant value
+using JSTL c:if
+update login controller check login with name pass and role
+finish Login function

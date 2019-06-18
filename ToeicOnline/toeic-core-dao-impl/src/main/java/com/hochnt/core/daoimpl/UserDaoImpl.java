@@ -40,7 +40,6 @@ public class UserDaoImpl extends AbstractDao<Integer, UserEntity> implements Use
     }
 
     public UserEntity findRoleByUser(String userName, String password) {
-        UserEntity entity = new UserEntity();
-        return entity;
+        return isUserExist(userName,password);
     }
 }

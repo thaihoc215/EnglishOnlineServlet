@@ -10,6 +10,8 @@ public class UserBeanUtil {
      * @return
      */
     public static UserDTO entity2Dto(UserEntity userEntity) {
+        if(userEntity == null)
+            return null;
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(userEntity.getUserId());
         userDTO.setName(userEntity.getName());
@@ -27,6 +29,8 @@ public class UserBeanUtil {
      * @return
      */
     public static UserEntity dto2Entity(UserDTO userDTO) {
+        if(userDTO == null)
+            return null;
         UserEntity userEntity = new UserEntity();
         userEntity.setUserId(userDTO.getUserId());
         userEntity.setName(userDTO.getName());
