@@ -28,9 +28,25 @@
 </head>
 <body class="no-skin">
     <%@ include file="/common/admin/header.jsp"%>
-    <%--<%@ include file="/common/admin/menu.jsp"%>--%>
-    <dec:body></dec:body>
-    <%--<%@ include file="/common/admin/footer.jsp"%>--%>
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+        </script>
+        <%@ include file="/common/admin/menu.jsp"%>
+
+        <%--Begin body--%>
+        <dec:body></dec:body>
+        <%--End body--%>
+
+        <%@ include file="/common/admin/footer.jsp"%>
+
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
+
+
+
 
     <script src="<c:url value='/template/admin/js/bootstrap.min.js'/>"></script>
 
