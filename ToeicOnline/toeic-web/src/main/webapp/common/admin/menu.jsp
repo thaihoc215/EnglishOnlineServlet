@@ -1,17 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HOCHNT
-  Date: 5/30/2019
-  Time: 12:16 AM
-  To change this template use File | Settings | File Templates.
---%>
-<div id="sidebar" class="sidebar responsive">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
+<c:url value="/admin-guideline-listen-list.html" var="listenGuidelineListUrl">
+    <c:param name="urlType" value="url_list" />
+</c:url>
+<c:url value="/admin-user-list.html" var="userListUrl">
+    <c:param name="urlType" value="url_list" />
+</c:url>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
     <script type="text/javascript">
-        try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
+        try { ace.settings.loadState('sidebar') } catch (e) { }
     </script>
-
-    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+    <div class="sidebar-shortcuts">
+        <div class="sidebar-shortcuts-large">
             <button class="btn btn-success">
                 <i class="ace-icon fa fa-signal"></i>
             </button>
@@ -28,8 +30,7 @@
                 <i class="ace-icon fa fa-cogs"></i>
             </button>
         </div>
-
-        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+        <div class="sidebar-shortcuts-mini">
             <span class="btn btn-success"></span>
 
             <span class="btn btn-info"></span>
@@ -38,484 +39,64 @@
 
             <span class="btn btn-danger"></span>
         </div>
-    </div><!-- /.sidebar-shortcuts -->
-
+    </div>
     <ul class="nav nav-list">
-        <li class="">
-            <a href="index.html">
-                <i class="menu-icon fa fa-tachometer"></i>
-                <span class="menu-text"> Dashboard </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
-        <li class="active open">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-desktop"></i>
-                <span class="menu-text">
-                        UI &amp; Elements
-                    </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
-
-                        Layouts
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="top-menu.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Top Menu
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="two-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Two Menus 1
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="two-menu-2.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Two Menus 2
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-1.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Default Mobile Menu
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-2.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mobile Menu 2
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="mobile-menu-3.html">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Mobile Menu 3
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="typography.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Typography
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="elements.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Elements
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="buttons.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Buttons &amp; Icons
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="content-slider.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Content Sliders
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="active">
-                    <a href="treeview.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Treeview
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jquery-ui.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jQuery UI
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="nestable-list.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Nestable Lists
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-caret-right"></i>
-
-                        Three Level Menu
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="#">
-                                <i class="menu-icon fa fa-leaf green"></i>
-                                Item #1
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="menu-icon fa fa-pencil orange"></i>
-
-                                4th level
-                                <b class="arrow fa fa-angle-down"></b>
-                            </a>
-
-                            <b class="arrow"></b>
-
-                            <ul class="submenu">
-                                <li class="">
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-plus purple"></i>
-                                        Add Product
-                                    </a>
-
-                                    <b class="arrow"></b>
-                                </li>
-
-                                <li class="">
-                                    <a href="#">
-                                        <i class="menu-icon fa fa-eye pink"></i>
-                                        View Products
-                                    </a>
-
-                                    <b class="arrow"></b>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text"> Tables </span>
-
+                <span class="menu-text"></span>
+                <fmt:message key="label.guideline.listen" bundle="${lang}" />
                 <b class="arrow fa fa-angle-down"></b>
             </a>
-
             <b class="arrow"></b>
-
             <ul class="submenu">
                 <li class="">
-                    <a href="tables.html">
+                    <a href="${listenGuidelineListUrl}">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Simple &amp; Dynamic
+                        <fmt:message key="label.guideline.listen.list" bundle="${lang}" />
                     </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="jqgrid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        jqGrid plugin
-                    </a>
-
                     <b class="arrow"></b>
                 </li>
             </ul>
         </li>
-
         <li class="">
             <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-pencil-square-o"></i>
-                <span class="menu-text"> Forms </span>
-
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"></span>
+                <fmt:message key="label.dashboard" bundle="${lang}" />
                 <b class="arrow fa fa-angle-down"></b>
             </a>
-
             <b class="arrow"></b>
-
             <ul class="submenu">
                 <li class="">
-                    <a href="form-elements.html">
+                    <a href="${userListUrl}">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Form Elements
+                        <fmt:message key="label.user.management" bundle="${lang}" />
                     </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="form-elements-2.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Form Elements 2
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="form-wizard.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Wizard &amp; Validation
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="wysiwyg.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Wysiwyg &amp; Markdown
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="dropzone.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Dropzone File Upload
-                    </a>
-
                     <b class="arrow"></b>
                 </li>
             </ul>
         </li>
-
-        <li class="">
-            <a href="widgets.html">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Widgets </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
-        <li class="">
-            <a href="calendar.html">
-                <i class="menu-icon fa fa-calendar"></i>
-
-                <span class="menu-text">
-                        Calendar
-
-                        <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                            <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-                        </span>
-                    </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
-        <li class="">
-            <a href="gallery.html">
-                <i class="menu-icon fa fa-picture-o"></i>
-                <span class="menu-text"> Gallery </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
         <li class="">
             <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-tag"></i>
-                <span class="menu-text"> More Pages </span>
-
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"></span>
+                <fmt:message key="lable.exercise.management" bundle="${lang}" />
                 <b class="arrow fa fa-angle-down"></b>
             </a>
-
             <b class="arrow"></b>
-
             <ul class="submenu">
                 <li class="">
-                    <a href="profile.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        User Profile
+                    <a href="<c:url value="/admin-exericse-upload.html"/>"> <i class="menu-icon fa fa-caret-right"></i>
+                        <fmt:message key="label.exercise.audio.image.upload" bundle="${lang}" />
                     </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="inbox.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Inbox
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="pricing.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Pricing Tables
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="invoice.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Invoice
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="timeline.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Timeline
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="email.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Email Templates
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="login.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Login &amp; Register
-                    </a>
-
                     <b class="arrow"></b>
                 </li>
             </ul>
         </li>
-
-        <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-file-o"></i>
-
-                <span class="menu-text">
-                        Other Pages
-
-                        <span class="badge badge-primary">5</span>
-                    </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="faq.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        FAQ
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-404.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Error 404
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="error-500.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Error 500
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="grid.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Grid
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
-                    <a href="blank.html">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Blank Page
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-            </ul>
-        </li>
-    </ul><!-- /.nav-list -->
-
-    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-        <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+    </ul>
+    <div class="sidebar-toggle sidebar-collapse">
+        <i class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left"
+           data-icon2="ace-icon fa fa-angle-double-right"></i>
     </div>
-
-    <script type="text/javascript">
-        try { ace.settings.check('sidebar', 'collapsed') } catch (e) { }
-    </script>
 </div>
