@@ -138,3 +138,7 @@ add webconstant value
 using JSTL c:if
 update login controller check login with name pass and role
 finish Login function
+
+Bài 30: Xây dựng giao diện trang admin và trang web của người dùng sử dụng sitemesh decorator
+- update admin view (update header/ menu (via treeview), body
+23/06
