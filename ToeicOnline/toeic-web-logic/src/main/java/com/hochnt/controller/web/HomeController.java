@@ -18,7 +18,7 @@ public class HomeController extends HttpServlet {
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/html");
         out.print("Hello demo");*/
-        RequestDispatcher rd = req.getRequestDispatcher("/views/web/web.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)
+        RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)
         rd.forward(req, resp);
     }
 

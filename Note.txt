@@ -142,3 +142,8 @@ finish Login function
 Bài 30: Xây dựng giao diện trang admin và trang web của người dùng sử dụng sitemesh decorator
 - update admin view (update header/ menu (via treeview), body
 23/06
+- update lib
+- update template for admin
+- desig view for web
+- add lib for web template
+- update header/footer for web
