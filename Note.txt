@@ -147,3 +147,5 @@ Bài 30: Xây dựng giao diện trang admin và trang web của người dùng 
 - desig view for web
 - add lib for web template
 - update header/footer for web
+
+Bài 31.1: Sử dụng display tag

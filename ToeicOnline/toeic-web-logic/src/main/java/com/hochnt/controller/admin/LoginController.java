@@ -39,20 +39,17 @@ public class LoginController extends HttpServlet {
             if (user != null && user.getRoleDTO() != null) {
                 log.info(String.format("Found user with name: %s and role", user.getName(), user.getRoleDTO().getName()));
                 if (user.getRoleDTO().getName().equals(WebConstant.ROLE_ADMIN)) {
-                    req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
-                    req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là admin");
+                    resp.sendRedirect("/admin-home.html");
                 } else if (user.getRoleDTO().getName().equals(WebConstant.ROLE_USER)) {
-                    req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
-                    req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là user");
+                    resp.sendRedirect("/home.html");
                 }
             }
         } else {
             log.info(String.format("Cant find user with name: %s", pojo.getName()));
             req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_ERROR);
             req.setAttribute(WebConstant.MESSAGE_RESPONSE, "Tên hoặc mật khẩu sai");
-
+            RequestDispatcher rd = req.getRequestDispatcher("/views/web/login.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)
+            rd.forward(req, resp);
         }
-        RequestDispatcher rd = req.getRequestDispatcher("/views/web/login.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)
-        rd.forward(req, resp);
     }
 }
