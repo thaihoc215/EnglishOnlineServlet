@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
 
 public class UserDaoImpl extends AbstractDao<Integer, UserEntity> implements UserDao {
 
-    public UserEntity isUserExist(String userName, String password) {
+    public UserEntity findUserByUsernameAndPassword(String userName, String password) {
         UserEntity entity;
         Session session = getSession();
         try {
@@ -37,9 +37,5 @@ public class UserDaoImpl extends AbstractDao<Integer, UserEntity> implements Use
         }
 
         return entity;
-    }
-
-    public UserEntity findRoleByUser(String userName, String password) {
-        return isUserExist(userName,password);
     }
 }

@@ -5,12 +5,10 @@ import com.hnthoc.core.persistence.entity.UserEntity;
 
 public interface UserDao extends GenericDao<Integer, UserEntity> {
     /**
-     * Check user exist in db
+     * find a an user via user name and password
      * @param userName
      * @param password
      * @return
      */
-    UserEntity isUserExist(String userName, String password);
-
-    UserEntity findRoleByUser(String userName, String password);
+    UserEntity findUserByUsernameAndPassword(String userName, String password);
 }
