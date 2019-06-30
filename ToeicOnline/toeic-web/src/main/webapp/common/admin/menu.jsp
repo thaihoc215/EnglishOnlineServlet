@@ -45,6 +45,7 @@
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>
                 <span class="menu-text"></span>
+                <%--father menu--%>
                 <fmt:message key="label.guideline.listen" bundle="${lang}" />
                 <b class="arrow fa fa-angle-down"></b>
             </a>
@@ -59,6 +60,7 @@
                 </li>
             </ul>
         </li>
+
         <li class="">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-list"></i>

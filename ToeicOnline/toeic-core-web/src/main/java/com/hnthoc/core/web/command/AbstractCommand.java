@@ -6,7 +6,7 @@ public class AbstractCommand<T> {
     protected T pojo;
     // action for controller: insert, update, delete
     private String crudaction;
-    private List<T> listResult;
+    private List<T> listResult; // list result for show in view (display table)
     private String tableId = "tableList";
     private int maxPageItems = 5;
     private int totalItems = 0;

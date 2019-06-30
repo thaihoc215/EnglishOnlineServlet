@@ -148,4 +148,8 @@ Bài 30: Xây dựng giao diện trang admin và trang web của người dùng 
 - add lib for web template
 - update header/footer for web
 
-Bài 31.1: Sử dụng display tag
+Bài 31.1: Sử dụng display tag = cấu hình, thêm thư viện
+http://displaytag.sourceforge.net/11/tut_externalSortAndPage.html
+Bài 31.2: Tạo và phân trang chức năng listen guidline (admin page)
+update resource bundle Application resource
+create ListenGuidelineController
