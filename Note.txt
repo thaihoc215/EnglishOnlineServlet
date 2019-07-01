@@ -152,4 +152,12 @@ Bài 31.1: Sử dụng display tag = cấu hình, thêm thư viện
 http://displaytag.sourceforge.net/11/tut_externalSortAndPage.html
 Bài 31.2: Tạo và phân trang chức năng listen guidline (admin page)
 update resource bundle Application resource
-create ListenGuidelineController
+create 
+
+Bài 32: Clean code lại chức năng login
+- refactor dao code for get user
+Bài 33: Sử dụng display để thực hành phân trang
+add listenguidle dto
+demo display tag for listenguidle
+add listenguideline command
+update view for list listen guideline
