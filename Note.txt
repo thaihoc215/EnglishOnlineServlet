@@ -161,3 +161,8 @@ add listenguidle dto
 demo display tag for listenguidle
 add listenguideline command
 update view for list listen guideline
+
+Bài 34.1: Create API support paging/sort and improve API findByProperty
+update findProperty function and hibernate sql
+add fake data for listen guideline
+create ListenGuideLine test

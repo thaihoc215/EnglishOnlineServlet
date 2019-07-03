@@ -150,39 +150,58 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return rs;
     }
 
-    public Object[] findByProperty(String property, Object value, String sortExpresion, String direction) {
+    public Object[] findByProperty(String property, Object value, String sortExpression, String direction, Integer offset, Integer limit) {
         Session session = getSession();
         Object[] rs = new Object[2];
         List<T> list;
         try {
 
             // using HQL
-/*            StringBuilder hql = new StringBuilder("from ");
+            /*StringBuilder hql = new StringBuilder("from ");
             hql.append(getPersistenceClassName());
             if (!StringUtils.isNullOrEmpty(property) && value != null) {
                 hql.append(" where ").append(property).append(" =:value");
             }
-            if (!StringUtils.isNullOrEmpty(sortExpresion) && !StringUtils.isNullOrEmpty(direction)) {
-                hql.append(" order by ").append(sortExpresion);
-                hql.append(" " + (sortExpresion.equals(CoreConstant.SORT_ASC) ? "ASC" : "DESC"));
+            if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(direction)) {
+                hql.append(" order by ").append(sortExpression);
+                hql.append(" " + (sortExpression.equals(CoreConstant.SORT_ASC) ? "ASC" : "DESC"));
             }
 
             Query<T> query = session.createQuery(hql.toString());
             if (!StringUtils.isNullOrEmpty(property) && value != null) {
              query.setParameter("value",value);
             }
+
+            if(offset != null && offset >- 0){
+                query.setFirstResult(offset);
+            }
+            if(limit != null && limit > 0) {
+                query.setMaxResults(limit);
+            }
             list = query.getResultList();*/
+
+
             //use JPA
             CriteriaBuilder cb = session.getCriteriaBuilder();
             CriteriaQuery<T> cr = cb.createQuery(persistenceClass);
             Root<T> root = cr.from(persistenceClass);
+            cr.select(root);
             if (!StringUtils.isNullOrEmpty(property) && value != null) {
-                cr.select(root).where(cb.equal(root.get(property), value));
+                cr.where(cb.equal(root.get(property), value));
             }
-            if (!StringUtils.isNullOrEmpty(sortExpresion) && !StringUtils.isNullOrEmpty(direction)) {
-                cr.orderBy(direction.equals("2") ? cb.asc(root.get(sortExpresion)) : cb.desc(root.get(sortExpresion)));
+            if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(direction)) {
+                cr.orderBy(direction.equals("2") ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
             }
-            list = session.createQuery(cr).getResultList();
+
+            Query<T> query = session.createQuery(cr);
+            if (offset != null && offset > 0) {
+                query.setFirstResult(offset);
+            }
+            if (limit != null && limit > 0) {
+                query.setMaxResults(limit);
+            }
+
+            list = query.getResultList();
 
 
         } catch (HibernateException e) {

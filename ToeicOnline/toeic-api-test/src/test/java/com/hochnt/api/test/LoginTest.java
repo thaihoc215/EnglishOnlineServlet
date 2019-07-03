@@ -11,7 +11,7 @@ public class LoginTest {
     @Test
     public void checkIsUserExist(){
         UserDao dao = new UserDaoImpl();
-        UserEntity entity = dao.isUserExist("admin", "123456");
+        UserEntity entity = dao.findUserByUsernameAndPassword("admin", "123456");
         if(entity!= null) {
             log.info("login success");
             System.out.println(entity.getName());
@@ -20,7 +20,7 @@ public class LoginTest {
             log.error("user not found");
         }
 
-        entity = dao.isUserExist("admin1", "123456");
+        entity = dao.findUserByUsernameAndPassword("admin1", "123456");
 
         if(entity!= null) {
             log.info("login success");
@@ -35,7 +35,7 @@ public class LoginTest {
     @Test
     public void checkFindRoleUser(){
         UserDao dao = new UserDaoImpl();
-        UserEntity entity = dao.isUserExist("admin", "123456");
+        UserEntity entity = dao.findUserByUsernameAndPassword("admin", "123456");
         if(entity!= null) {
             log.info("login success");
             log.info(String.format("User : %s - Role: %s", entity.getName(),entity.getRoleEntity().getName()));

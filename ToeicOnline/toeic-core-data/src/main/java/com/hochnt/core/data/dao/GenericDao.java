@@ -21,7 +21,7 @@ public interface GenericDao<ID extends Serializable, T> {
 
     T findById(ID id);
 
-    Object[] findByProperty(String property, Object value, String sortExpresion, String direction );
+    Object[] findByProperty(String property, Object value, String sortExpression, String direction, Integer offset, Integer limit);
 
     /**
      * Delete list item by item ids
