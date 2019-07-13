@@ -166,3 +166,7 @@ Bài 34.1: Create API support paging/sort and improve API findByProperty
 update findProperty function and hibernate sql
 add fake data for listen guideline
 create ListenGuideLine test
+
+34.2:
+create ListenGuidelineService
+http://displaytag.sourceforge.net/11/tut_externalSortAndPage.html

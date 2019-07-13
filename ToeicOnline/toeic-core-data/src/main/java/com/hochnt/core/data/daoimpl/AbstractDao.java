@@ -190,7 +190,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
                 cr.where(cb.equal(root.get(property), value));
             }
             if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(direction)) {
-                cr.orderBy(direction.equals("2") ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
+                cr.orderBy(direction.equals(CoreConstant.SORT_ASC) ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
             }
 
             Query<T> query = session.createQuery(cr);
