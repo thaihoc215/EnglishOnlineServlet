@@ -21,6 +21,16 @@ public interface GenericDao<ID extends Serializable, T> {
 
     T findById(ID id);
 
+    /**
+     *
+     * @param property
+     * @param value
+     * @param sortExpression
+     * @param direction
+     * @param offset
+     * @param limit
+     * @return objects: 0 - list entity, 1 - number size of list
+     */
     Object[] findByProperty(String property, Object value, String sortExpression, String direction, Integer offset, Integer limit);
 
     /**

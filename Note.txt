@@ -170,3 +170,10 @@ create ListenGuideLine test
 34.2:
 create ListenGuidelineService
 http://displaytag.sourceforge.net/11/tut_externalSortAndPage.html
+define the value will get from display tag UI: pagesize/sort...
+add Api initSearchBean for display tag
+
+35.1: sort and paging in display tag
+- create listenguideline converter
+- update doget listenguideline
+- define findListenGuidelineByProperties for listenguideline service

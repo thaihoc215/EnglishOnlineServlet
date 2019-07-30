@@ -20,6 +20,7 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
 
     private final Logger log = Logger.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd = req.getRequestDispatcher("/views/web/login.jsp"); // muon hien thi view nao thif truyen path cua file jsp vao (views)

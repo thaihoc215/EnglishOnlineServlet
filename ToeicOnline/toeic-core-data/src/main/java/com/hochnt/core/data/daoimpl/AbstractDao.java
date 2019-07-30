@@ -222,7 +222,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         int count = 0;
         try {
             for (ID id : ids) {
-                T t = (T) session.get(persistenceClass, id);
+                T t = session.get(persistenceClass, id);
                 if (t == null)
                     continue;
                 session.delete(t);
