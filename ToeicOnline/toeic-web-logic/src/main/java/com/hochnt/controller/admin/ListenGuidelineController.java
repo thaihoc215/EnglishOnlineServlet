@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/admin-guideline-listen-list.html")
@@ -26,28 +25,14 @@ public class ListenGuidelineController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ListenGuidelineCommand listenGuidelineCommand = new ListenGuidelineCommand();
 
-        // get list item for display tag table
-        List<ListenGuidelineDTO> listenGuidelineDTOS = new ArrayList<ListenGuidelineDTO>();
-        /*ListenGuidelineDTO dto = new ListenGuidelineDTO();
-        dto.setTitle("Bai nghe 1");
-        dto.setContent("Noi dung bai nghe 1");
-
-        ListenGuidelineDTO dto2 = new ListenGuidelineDTO();
-        dto.setTitle("Bai nghe 1");
-        dto.setContent("Noi dung bai nghe 1");
-
-        listenGuidelineDTOS.add(dto);
-        listenGuidelineDTOS.add(dto2);
-
-        listenGuidelineCommand.setListResult(listenGuidelineDTOS);
-        listenGuidelineCommand.setMaxPageItems(1);
-        listenGuidelineCommand.setTotalItems(listenGuidelineDTOS.size());*/
-
         listenGuidelineCommand.setMaxPageItems(2);
         RequestUtil.initSearchBean(req, listenGuidelineCommand);
-        listenGuidelineDTOS = (List<ListenGuidelineDTO>) listenGuidelineService.findListenGuidelineByProperties(null, null, listenGuidelineCommand.getSortExpression(),
-                listenGuidelineCommand.getSortDirection(), listenGuidelineCommand.getFirstItem(), listenGuidelineCommand.getMaxPageItems())[0];
-//        req.setAttribute(WebConstant.LIST_ITEMS, listenGuidelineCommand);
+        // get list item for display tag table
+        Object[] listenGuidelineObj = listenGuidelineService.findListenGuidelineByProperties(null, null, listenGuidelineCommand.getSortExpression(),
+                listenGuidelineCommand.getSortDirection(), listenGuidelineCommand.getFirstItem(), listenGuidelineCommand.getMaxPageItems());
+        listenGuidelineCommand.setListResult((List<ListenGuidelineDTO>) listenGuidelineObj[0]);
+        listenGuidelineCommand.setTotalItems(Integer.parseInt(listenGuidelineObj[1].toString()));
+        req.setAttribute(WebConstant.LIST_ITEMS, listenGuidelineCommand);
         RequestDispatcher rd = req.getRequestDispatcher("/views/admin/listenguideline/list.jsp");
         rd.forward(req, resp);
     }

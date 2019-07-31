@@ -150,7 +150,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return rs;
     }
 
-    public Object[] findByProperty(String property, Object value, String sortExpression, String direction, Integer offset, Integer limit) {
+    public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection, Integer offset, Integer limit) {
         Session session = getSession();
         Object[] rs = new Object[2];
         List<T> list;
@@ -189,8 +189,8 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             if (!StringUtils.isNullOrEmpty(property) && value != null) {
                 cr.where(cb.equal(root.get(property), value));
             }
-            if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(direction)) {
-                cr.orderBy(direction.equals(CoreConstant.SORT_ASC) ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
+            if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(sortDirection)) {
+                cr.orderBy(sortDirection.equals(CoreConstant.SORT_ASC) ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
             }
 
             Query<T> query = session.createQuery(cr);
@@ -202,16 +202,24 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             }
 
             list = query.getResultList();
+            rs[0] = list;
 
-
+            StringBuilder sql2 = new StringBuilder("select count(*) from ");
+            sql2.append(getPersistenceClassName());
+            if (!StringUtils.isNullOrEmpty(property) && value != null) {
+                sql2.append(" where ").append(property).append(" =:value");
+            }
+            Query query2 = session.createQuery(sql2.toString());
+            if (!StringUtils.isNullOrEmpty(property) && value != null) {
+                query2.setParameter("value",value);
+            }
+            rs[1] = query2.list().get(0);
         } catch (HibernateException e) {
             //transaction.rollback();
             throw e;
         } finally {
             session.close();
         }
-        rs[0] = list;
-        rs[1] = list == null ? 0 : list.size();
         return rs;
     }
 

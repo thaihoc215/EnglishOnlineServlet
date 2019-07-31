@@ -177,3 +177,9 @@ add Api initSearchBean for display tag
 - create listenguideline converter
 - update doget listenguideline
 - define findListenGuidelineByProperties for listenguideline service
+
+Bài 35.2
+update data respond for get listenguideline
+update list.jsp requestURL
+update findByProperty return count all rows
+
