@@ -15,7 +15,7 @@ public class ListenGuidelineServiceImpl implements ListenGuidelineService {
     private ListenGuideLineDao listenGuideLineDao = new ListenGuideLineDaoImpl();
 
     public Object[] findListenGuidelineByProperties(String property, Object value, String sortExpression, String direction, Integer offset, Integer limit) {
-        Object[] lstDataAndSize = listenGuideLineDao.findByProperty(property, value, sortExpression, direction, offset, limit);
+        Object[] lstDataAndSize = listenGuideLineDao.findByProperty(property, sortExpression, direction, offset, limit);
         List<ListenGuideLineEntity> lstListen = (List<ListenGuideLineEntity>)lstDataAndSize[0];
         List<ListenGuidelineDTO> result = new ArrayList<ListenGuidelineDTO>();
         for(ListenGuideLineEntity item : lstListen) {

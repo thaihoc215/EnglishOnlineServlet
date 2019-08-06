@@ -11,7 +11,7 @@ public class ListenGuidelineTest {
     @Test
     public void testFindByProperties() {
         ListenGuideLineDao lineDao = new ListenGuideLineDaoImpl();
-        Object[] lineEntities = lineDao.findByProperty(null, null, null, null, 2, 2);
+        Object[] lineEntities = lineDao.findByProperty(null, null, null, 2, 2);
         if ((Integer) lineEntities[1] > 0) {
             List<ListenGuideLineEntity> lst = (List<ListenGuideLineEntity>) lineEntities[0];
             for (ListenGuideLineEntity idx : lst) {

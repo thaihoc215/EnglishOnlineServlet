@@ -13,10 +13,13 @@ import org.hibernate.query.Query;
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T> {
     //method get class name
@@ -150,10 +153,19 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         return rs;
     }
 
-    public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection, Integer offset, Integer limit) {
+    public Object[] findByProperty(Map<String, Object> properties, String sortExpression, String sortDirection, Integer offset, Integer limit) {
         Session session = getSession();
         Object[] rs = new Object[2];
         List<T> list;
+        int propertiesSize = properties.size();
+        ArrayList<String> params = new ArrayList<String>();
+        ArrayList<Object> values = new ArrayList<Object>();
+
+
+        for (Map.Entry item : properties.entrySet()) {
+            params.add((String) item.getKey());
+            values.add(item.getValue());
+        }
         try {
 
             // using HQL
@@ -186,8 +198,13 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
             CriteriaQuery<T> cr = cb.createQuery(persistenceClass);
             Root<T> root = cr.from(persistenceClass);
             cr.select(root);
-            if (!StringUtils.isNullOrEmpty(property) && value != null) {
-                cr.where(cb.equal(root.get(property), value));
+
+            if (propertiesSize > 0) {
+                Predicate[] predicates = new Predicate[propertiesSize];
+                for (int i = 0; i < propertiesSize; i++) {
+                    predicates[i] = cb.equal(root.get(params.get(i)), values.get(i));
+                }
+                cr.where(predicates);
             }
             if (!StringUtils.isNullOrEmpty(sortExpression) && !StringUtils.isNullOrEmpty(sortDirection)) {
                 cr.orderBy(sortDirection.equals(CoreConstant.SORT_ASC) ? cb.asc(root.get(sortExpression)) : cb.desc(root.get(sortExpression)));
@@ -206,12 +223,18 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
             StringBuilder sql2 = new StringBuilder("select count(*) from ");
             sql2.append(getPersistenceClassName());
-            if (!StringUtils.isNullOrEmpty(property) && value != null) {
-                sql2.append(" where ").append(property).append(" =:value");
+            if (propertiesSize > 0) {
+                sql2.append(" where 1 = 1");
+                for (int i = 0; i < propertiesSize; i++) {
+                    sql2.append(" and ").append(params.get(i)).append(" =:" + params.get(i));
+                }
             }
             Query query2 = session.createQuery(sql2.toString());
-            if (!StringUtils.isNullOrEmpty(property) && value != null) {
-                query2.setParameter("value",value);
+            if (propertiesSize > 0) {
+                sql2.append(" where 1 = 1");
+                for (int i = 0; i < propertiesSize; i++) {
+                    query2.setParameter(params.get(i), values.get(i));
+                }
             }
             rs[1] = query2.list().get(0);
         } catch (HibernateException e) {

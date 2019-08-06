@@ -183,3 +183,7 @@ update data respond for get listenguideline
 update list.jsp requestURL
 update findByProperty return count all rows
 
+Bài 36: Ôn tập Hashet và hashmap
+Bài 37.1: Cải thiện API findByProperty
+dang tim kiem theo mot truong duy nhat -> update tim kiem theo nhieu tieu chi -> su dung map
+update findByProperty params
