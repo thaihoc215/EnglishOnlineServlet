@@ -6,6 +6,7 @@
             <!--<class name="vn.myclass.api.test.ListenGuidelineTest"/>-->
             <!--<class name="vn.myclass.api.test.reviewHashMap"/>-->
             <class name="com.hochnt.api.test.RoleTest"></class>
+            <class name="com.hochnt.api.test.ListenGuidelineTest"></class>
         </classes>
     </test>
 </suite>

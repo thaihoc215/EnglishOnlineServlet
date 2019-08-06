@@ -47,9 +47,9 @@ public class RoleTest {
     @Test
     public void testFindByProperty(){
         RoleDao dao = new RoleDaoImpl();
-        Object[] roleFind = dao.findByProperty("name", "name", "2", null, null);
+//        Object[] roleFind = dao.findByProperty("name", "name", "2", null, null);
         Object[] roleFind2 = dao.findByProperty(null, null, null, null, null);
-        System.out.println(roleFind[1].toString());
+//        System.out.println(roleFind[1].toString());
     }
 
     @Test
