@@ -187,3 +187,5 @@ Bài 36: Ôn tập Hashet và hashmap
 Bài 37.1: Cải thiện API findByProperty
 dang tim kiem theo mot truong duy nhat -> update tim kiem theo nhieu tieu chi -> su dung map
 update findByProperty params
+
+Bai 37.2: update testng
