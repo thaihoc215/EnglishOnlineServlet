@@ -189,3 +189,7 @@ dang tim kiem theo mot truong duy nhat -> update tim kiem theo nhieu tieu chi ->
 update findByProperty params
 
 Bai 37.2: update testng
+Bai 38: Sử dụng resource bundle trong servlet
+Bai 39: use urlpatterns in servlet
+- Trong 1 servlet có thể sử dụng nhiều url
+- update link to empty list page (using url pattern and Form util and jstl url)
