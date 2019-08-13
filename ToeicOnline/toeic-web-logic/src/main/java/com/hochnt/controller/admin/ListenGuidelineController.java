@@ -5,6 +5,9 @@ import com.hnthoc.core.service.impl.ListenGuidelineServiceImpl;
 import com.hnthoc.core.web.common.WebConstant;
 import com.hnthoc.core.web.utils.FormUtil;
 import com.hochnt.command.ListenGuidelineCommand;
+import com.hochnt.core.common.utils.UploadUtil;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +21,7 @@ import java.util.ResourceBundle;
 //@WebServlet("/admin-guideline-listen-list.html")
 @WebServlet(urlPatterns = {"/admin-guideline-listen-list.html", "/admin-guideline-listen-edit.html"})
 public class ListenGuidelineController extends HttpServlet {
+    private final Logger log = Logger.getLogger(this.getClass());
 
     private ListenGuidelineService listenGuidelineService = new ListenGuidelineServiceImpl();
 
@@ -49,6 +53,17 @@ public class ListenGuidelineController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        UploadUtil uploadUtil = new UploadUtil();
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("ApplicationResources");
+        try {
+            Object[] objects = uploadUtil.writeOrUpdateFile(req, null, null);
+            req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
+            req.setAttribute(WebConstant.MESSAGE_RESPONSE, resourceBundle.getString("label.guideline.listen.add.success"));
+        } catch (FileUploadException e) {
+            req.setAttribute(WebConstant.ALERT, WebConstant.TYPE_ERROR);
+            req.setAttribute(WebConstant.MESSAGE_RESPONSE, resourceBundle.getString("label.error"));
+        }
+
+        resp.sendRedirect("/admin-guideline-listen-edit.html?urlType=url_list");
     }
 }

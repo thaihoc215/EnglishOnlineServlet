@@ -193,3 +193,10 @@ Bai 38: Sử dụng resource bundle trong servlet
 Bai 39: use urlpatterns in servlet
 - Trong 1 servlet có thể sử dụng nhiều url
 - update link to empty list page (using url pattern and Form util and jstl url)
+Bài 40.1: xây dựng phương thức upload file sử dụng apache common
+https://commons.apache.org/proper/commons-fileupload/using.html
+add lib/dependency apache common io/upload file
+Create util UploadUtil -> doing logic write file
+Create simple form to upload file -> update edit page(admin)
+add post method for upload file for controller(listenguidle)
+Bài 40.2: test upload file
